@@ -1,0 +1,77 @@
+.Timer-Container {
+    background-color: rgb(70, 0, 0);
+    color: rgb(255,200,200);
+    padding: 2px;
+    margin: 1px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: inline-flex;
+    overflow: hidden;
+    align-items: center;
+    cursor: pointer;
+    i {
+        margin: 0px 2px;
+    };
+}
+
+.Timer-Icon {
+    transition: 0.5s;
+    width: 50vw;
+    max-width: min-content;
+    overflow: hidden;
+}
+
+.Timer-Icon.Collapse {
+    width: 0px;
+}
+
+.Timer-Icon.Active {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: rgb(255,200,200);
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: rgb(255,200,200);
+    }
+}
+
+.Timer-Expand {
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+    width: 50vw;
+    max-width: min-content;
+}
+
+.Timer-Expand.Collapse {
+    width: 0px;
+}
+
+.Timer-Time {
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 4em;
+}
+
+.Timer-Time-HMS {
+    background-color: rgb(50,0,0);
+    box-shadow: 0px 0px 15px rgb(50,0,0);
+    align-items: flex-end;
+    display: inline-flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 2px;
+    margin: 2px;
+}
+
+.Timer-Time-MS {
+    font-size: small;
+    padding: 2px;
+}

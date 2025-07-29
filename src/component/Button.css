@@ -1,0 +1,13 @@
+.Custom-Button {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.8px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}

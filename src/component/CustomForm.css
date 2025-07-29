@@ -1,0 +1,192 @@
+.CF_container {
+    box-shadow: 5px 5px 50px 10px magenta;
+    padding: 5px;
+    margin: 20px;
+    background-color: rgb(50, 0, 50);
+    border-radius: 20px;
+    user-select: none;
+}
+
+.CF_uniqueId {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.CF_uniqueId_text {
+    font-weight: 700;
+    color: rgb(150, 0, 150);
+    font-size: 10px;
+    font-style: italic;
+}
+
+.CF_title_text {
+    font-weight: 700;
+}
+
+.CF_buttonGroup {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.CF_buttonGroup_button {
+    border: 1px solid magenta;
+    color: rgb(150, 0, 150);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+/* .selected {
+    background-color: magenta !important;
+    color: rgb(50, 0, 50);
+} */
+
+.CF_date {
+    display: inline-flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.CF_date_label {
+    font-weight: 700;
+    text-align: right;
+    width: 25%;
+}
+
+.CF_date_input {
+    width: 55%;
+    margin-left: 5%;
+    font-weight: 700;
+    color: rgb(50, 0, 50);
+    font-size: 18px;
+}
+
+.CF_amount {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.CF_amount_input {
+    font-size: 18px;
+    width: 70%;
+    font-weight: 700;
+    color: rgb(50, 0, 50);
+}
+
+.CF_amount_reset {
+    background-color: magenta;
+    color: rgb(50, 0, 50);
+    width: 20%;
+}
+
+.CF_amount_amounts {
+    background-color: magenta;
+    color: rgb(50, 0, 50);
+    font-size: 14px;
+    margin: 2%;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.CF_label {
+    width: 95%;
+    text-align: left;
+    margin-left: 5%;
+    font-weight: 700;
+    display: block;
+    margin-top: 10px;
+}
+
+.CF_tags {
+    width: 100%;
+}
+
+.CF_tags_tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.CF_tags_tags::-webkit-scrollbar {
+    display: none;
+}
+
+.CF_tag {
+    background-color: rgb(50, 0, 50);
+    border: 2px solid rgb(150, 0, 150);
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    border-radius: 5px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.CF_switch {
+    display: flex;
+    margin-top: 10px;
+}
+
+.CF_switch_label {
+    width: 40%;
+    text-align: left;
+    margin-left: 5%;
+    font-weight: 700;
+    display: block;
+}
+
+.CF_switch_switch {
+    width: 60%;
+}
+
+.CF_switch_option {
+    border: 2px solid rgb(150, 0, 150);
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.CF_textArea {
+    width: 90%;
+    margin-top: 5px;
+}
+
+.CF_footer {
+    display: inline-flex;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    width: 90%;
+    justify-content: center;
+}
+
+.CF_footer_button {
+    width: 40%;
+    border: 2px solid rgb(150, 0, 150);
+    border-radius: 5px;
+    background-color: rgb(114, 0, 114);
+    padding: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    color: rgb(50, 0, 50);
+}
+
+.active_button {
+    background-color: magenta;
+}

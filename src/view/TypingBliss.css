@@ -1,0 +1,491 @@
+.typing-bliss-main {
+    height: 100vh;
+    font-family: "JetBrains Mono", monospace;
+    background: rgb(100,100,0);
+    background: radial-gradient(circle, rgba(50,50,0,1) 0%, rgba(25,25,0,1) 100%);
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    flex-flow: column;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.words-box {
+    width: 90vw;
+    /* min-width: 240px; */
+    height: auto;
+    /* min-height: 11vmax; */
+    overflow: hidden;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.hide {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: black;
+    background-color: black;
+}
+
+.words-box-zen {
+    justify-content: center;
+}
+
+.words-input {
+    width: 0em;
+    height: 0em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.word.correct {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.word.wrong {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.word.hidden {
+    display: none;
+}
+
+.alphabet {
+    font-size: calc(10px + 4vmin);
+    /* font-family: "JetBrains Mono", monospace; */
+    font-weight: 700;
+    line-height: 7vmin;
+    text-shadow: 0px 0px 10px black;
+}
+
+.alphabet.correct {
+    color: rgba(0,255,0,0.2);
+    text-shadow: none;
+}
+
+.alphabet.wrong {
+    color: rgba(255,0,0,0.8);
+    text-shadow: none;
+}
+
+.alphabet.neutral {
+    color: rgb(255,255,100);
+}
+
+@keyframes blinking-cursor {
+    0% {border-color: white;}
+    50% {border-color: transparent;}
+    100% {border-color: white;}
+}
+
+.active {
+    border-bottom: 4px solid white;
+    animation-name: blinking-cursor;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+}
+
+.tool-bar {
+    display: inline-flex;
+    width: 100vw;
+    margin-top: 2vh;
+}
+
+.words-area {
+    position: relative;
+}
+
+.words-overlay {
+    background-color: rgb(72, 72, 0);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 40px black;
+    display: flex;
+    align-items: center;
+}
+
+.words-overlay-text {
+    font-size: 1.2em;
+    font-weight: 1000;
+    /* font-family: monospace; */
+    color: rgb(100, 100, 0);
+    border-top: .4em dashed rgb(100, 100, 0);
+    border-bottom: .4em dashed rgb(100, 100, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 1em; */
+    width: 100%;
+    height: 70%;
+}
+
+.timer-time {
+    font-size: 1em;
+    /* font-family: monospace; */
+    font-weight: bolder;
+    display: flex;
+    padding-top: 5vw;
+}
+
+.zen-after {
+    font-size: 15px;
+}
+
+.zen-before {
+    font-size: 15px;
+}
+
+.result-footer {
+    margin-top: 10px;
+    display: inline-flex;
+}
+
+.result-footer-button {
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid yellow;
+    border-radius: 25px;
+    /* font-family: monospace; */
+    cursor: pointer;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+}
+
+.result-footer-button:hover {
+    background-color: yellow;
+    border: 1px solid black;
+    color: black;
+}
+
+.result-footer-button:focus {
+    background-color: yellow;
+    border: 1px solid black;
+    color: black;
+}
+
+.icon-screenshot {
+    height: 30px;
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+}
+
+.icon-screenshot-success {
+    color: green;
+    height: 30px;
+    align-items: center;
+    display: flex;
+}
+
+.custom-words-selector {
+    width: 100%;
+    justify-content: center;
+}
+
+.custom-words-input {
+    width: 90%;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 5px;
+    resize: none;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 5px;
+    background-color: transparent;
+    color: yellow;
+}
+
+.custom-words-enter {
+    width: 100px;
+    border: 1px solid yellow;
+    border-radius: 25px;
+    font-size: 20px;
+    padding: 5px;
+    font-weight: 700;
+    margin: auto;
+    cursor: pointer;
+}
+
+.custom-words-enter:hover {
+    border: 1px solid black;
+    background-color: yellow;
+    color: black;
+}
+
+.custom-words-enter:focus {
+    border: 1px solid black;
+    background-color: yellow;
+    color: black;
+}
+
+.custom-words-edit {
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 10px;
+    padding: 5px;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.custom-words-edit:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.custom-words-edit:focus {
+    background-color: yellow;
+    color: black;
+}
+
+.custom-words-words {
+    display: inline-flex;
+    width: 80vw;
+    height: auto;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.footer-text {
+    font-size: 12px;
+    /* font-family: monospace; */
+    padding: 4px;
+}
+
+.footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 5%;
+}
+
+.header {
+    height: 25%;
+}
+
+.header-title {
+    /* font-family: monospace; */
+    font-weight: 700;
+    margin-top: 4px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.header-home {
+    color: gray;
+    font-weight: 100;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.game-board {
+    /* height: 60vh; */
+    /* width: 80vw; */
+    /* width: inherit;
+    height: inherit; */
+    /* position: fixed;
+    left: 0;
+    bottom: 5%;
+    width: 100vw; */
+    /* height: 60vh; */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 2em;
+}
+
+.game-game {
+    height: 90%;
+    width: 100%;
+    border: 2px solid yellow;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.game-game-hidden {
+    height: 0px;
+    width: 0px;
+}
+
+.game-score {
+    display: flex;
+    background: rgb(100, 100, 0);
+    box-shadow: 2px 2px 10px black;
+    flex-direction: column;
+    padding: .5em;
+    margin: .5em;
+    align-items: flex-start;
+}
+
+.game-score-heading {
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.game-score-score {
+    font-size: larger;
+    font-weight: bolder;
+    padding: .2em;
+    margin: .2em;
+    width: 5vw;
+    background-color: yellow;
+    color: black;
+}
+
+.game-buttons {
+    height: 10%;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-input {
+    position: absolute;
+    z-index: -1;
+    width: 0em;
+    height: 0em;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.TypingBliss-Toolbar.NewToolbar-Container {
+    background: transparent;
+    border: 2px dashed white;
+    .NewToolbar-Title {
+        color: rgb(255,255,100);
+    }
+    .NewToolbar-Options {
+        border-color: white;
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+    }
+    .NewToolbar-Option {
+        color: rgb(255,255,100);
+        background-color: rgb(50,50,0);
+    }
+    .NewToolbar-Option.selected {
+        background: rgb(255,255,100);
+        color: rgb(50,50,0);
+        border-color: rgb(255,255,100);
+    }
+}
+
+.TypingBliss-Button {
+    .NewButton-Button {
+        color: rgb(255,255,100);
+    }
+    .NewButton-Button[type = "default"] {
+        background-color: rgb(50,50,0);
+        border-color: rgb(50,50,0);
+    }
+    .NewButton-Button:hover[type = "default"]:not([enabled="no"]) {
+        background-color: rgb(25, 25, 0);
+        border-color: rgb(25, 25, 0);
+    }
+    .NewButton-RippleEffect {
+        background-color: yellow;
+    }
+}
+
+.TypingBliss-Timer.Timer-Container {
+    background-color: rgb(60,60,0);
+    color: rgb(255,255,100);
+    .Timer-Time-HMS {
+        color: white;
+        background-color: rgb(50,50,0);
+        box-shadow: 0px 0px 15px rgb(50,50,0);
+    }
+    .Timer-Icon.Active {
+        animation: blinks 1s infinite;
+    }
+}
+
+@keyframes blinks {
+    0% {
+        color: rgb(255,255,200);
+    }
+    50% {
+        color: rgb(100, 100, 0);
+    }
+    100% {
+        color: rgb(255,255,200);
+    }
+}
+
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.game-curr-score {
+    z-index: 4;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(25,25,0,0.9);
+    justify-content: center;
+    align-items: center;
+    .game-curr-score-board {
+        width: fit-content;
+        height: fit-content;
+        background-color: rgb(60,60,0);
+        padding: 4%;
+        border: 2px solid yellow;
+        border-radius: 10px;
+    }
+    .game-curr-score-num {
+        font-size: clamp(15px, 50vmin, 70px);
+        font-weight: bolder;
+        color: white;
+    }
+}

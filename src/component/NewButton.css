@@ -1,0 +1,91 @@
+.NewButton-Button {
+    color: rgb(255,200,200);
+    padding: 1vh 2vw;
+    margin: .1em;
+    display: inline-flex;
+    font-weight: 500;
+    border: 2px solid black;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.NewButton-Button i {
+    height: min-content;
+}
+
+.NewButton-Text {
+    display: inline-flex;
+}
+
+.NewButton-Button[type = "default"] {
+    background-color: rgb(50,0,0);
+    border-color: rgb(50,0,0);
+}
+
+.NewButton-Button[type = "simple"] {
+    border-color: rgb(50,0,0);
+}
+
+.NewButton-Button[type = "minimal"] {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.NewButton-Button:hover:not([enabled="no"]) {
+    background-color: rgba(25, 0, 0, 0.5);
+}
+
+.NewButton-Button:hover[type = "default"]:not([enabled="no"]) {
+    background-color: rgb(25, 0, 0);
+    border-color: rgb(25, 0, 0);
+}
+
+.NewButton-Button[enabled = "no"][type = "default"] {
+    background-color: rgb(50, 50, 50);
+    border-color: rgb(50, 50, 50);
+    color: rgb(25, 25, 25);
+    cursor: auto;
+}
+
+.NewButton-Button[enabled = "no"][type = "simple"] {
+    border-color: rgb(50, 50, 50);
+    color: rgb(25, 25, 25);
+    cursor: auto;
+}
+
+.NewButton-Button[enabled = "no"][type = "minimal"] {
+    color: rgb(25, 25, 25);
+    cursor: auto;
+}
+
+.NewButton-RippleEffect {
+    background-color: red;
+    width: 1vw;
+    height: 1vh;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.NewButton-RippleEffect-Animation {
+    animation: ripple 1s;
+    opacity: 0;
+}
+    
+@keyframes ripple {
+    from {
+        opacity: 0.4;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(100);
+    }
+}

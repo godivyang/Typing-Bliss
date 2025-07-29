@@ -1,0 +1,48 @@
+.Card-Container {
+	width: 220px;
+    height: 170px;
+    background: rgb(0,50,0);
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    flex-flow: column;
+    font-family: math;
+    padding: 5px;
+    text-decoration: none;
+    text-align: left;
+    color: rgb(0, 200, 0);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.Card-Title {
+	font-weight: 800;
+    margin: 4px;
+    text-shadow: 2px 1px rgb(0,50,0);
+    font-size: 2em;
+    z-index: 1;
+}
+
+.Card-Description {
+	margin: 2px;
+    font-size: small;
+    color: orange;
+    font-style: italic;
+}
+
+.Card-Circle {
+	position: absolute;
+    top: 0;
+    right: 0;
+	display: flex;
+    align-items: right;
+	width: 40px;
+    height: 40px;
+    border-radius: 0px 0px 0px 150%;
+    padding: 0px;
+    margin: 0px;
+    transition: .2s ease-in;
+}

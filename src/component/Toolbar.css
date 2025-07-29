@@ -1,0 +1,42 @@
+:root {
+    --toolbar-backgroundColor: yellow;
+    --toolbar-textColor: black;
+}
+
+.Toolbar_Container {
+    display: flex;
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 5px;
+    user-select: none;
+    justify-content: center;
+    color: white;
+}
+
+.Toolbar_Element_Start {
+    border-left: 2px solid var(--toolbar-backgroundColor);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.Toolbar_Element_End {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.Toolbar_Element {
+    border-top: 2px solid var(--toolbar-backgroundColor);
+    border-bottom: 2px solid var(--toolbar-backgroundColor);
+    border-right: 2px solid var(--toolbar-backgroundColor);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.Toolbar_Selected {
+    background-color: var(--toolbar-backgroundColor);
+    color: var(--toolbar-textColor);
+}
