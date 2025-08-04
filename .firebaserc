@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "theawakening-zg"
+  },
+  "targets": {
+    "theawakening-zg": {
+      "hosting": {
+        "typing-bliss": [
+          "typing-bliss"
+        ]
+      }
+    }
+  }
+}

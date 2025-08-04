@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, signInWithCustomToken } from "firebase/auth";
 import { getFirestore, getDoc, updateDoc, doc, setDoc, collection, query, 
     getDocs, where, deleteDoc, getCountFromServer, getAggregateFromServer,
     sum, average, limit } from "firebase/firestore";
@@ -15,14 +15,14 @@ import { getFirestore, getDoc, updateDoc, doc, setDoc, collection, query,
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA6ANupkgT_iY-f22dVxQRNuUFmomWUpZw",
-  authDomain: "theawakening-zg.firebaseapp.com",
-  databaseURL: "https://theawakening-zg.firebaseio.com",
-  projectId: "theawakening-zg",
-  storageBucket: "theawakening-zg.appspot.com",
-  messagingSenderId: "508951316999",
-  appId: "1:508951316999:web:d60ebfb3c5e5ee89bb38a2",
-  measurementId: "G-K8L2QQNZJ8"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 // Initialize Firebase
@@ -44,52 +44,26 @@ const signUp = async (email, password) => {
     // which you could then use to create your document
     const credential = await createUserWithEmailAndPassword(auth, email, password);
     userCredentials = credential.user;
-    const uid = credential.user.uid;
-
-    // Create a new document using the uid as the document id
-    // or however else you want to use this
-    var ref = doc(db, "_private", uid);
-    await setDoc(ref, {status: "successfully created"});
-    ref = collection(db, "_private", uid, "tracking_budget-entities");
-    await setDoc(doc(ref), {name: "Myself"});
-    ref = collection(db, "_private", uid, "tracking_budget-modesOfTransaction");
-    await setDoc(doc(ref), {name: "Cash"});
-    ref = collection(db, "_private", uid, "tracking_budget-categories");
-    [
-        "Bills", "Dining", "Education", "EMI", "Fuel", "Gadgets", "Groceries",
-        "Grooming", "Health", "Household", "House Rent", "Investment", "Kids",
-        "Leisure", "Others", "Office", "Shopping", "Travel"
-    ].forEach(async (name) => {
-        await setDoc(doc(ref), {name});
-    });
 }
 
 const logIn = async (email, password) => {
     const loginEvent = await signInWithEmailAndPassword(auth, email, password);
     userCredentials = loginEvent.user;
+    return afterLogin();
+}
 
+export const logInWithToken = async (token) => {
+    const loginEvent = await signInWithCustomToken(auth, token);
+    userCredentials = loginEvent.user;
+    return afterLogin();
+}
+
+const afterLogin = async () => {
     const uid = userCredentials.uid;
     var ref = doc(db, "_private", uid);
     const docSnap = await getDoc(ref);
     if (!docSnap.exists()) {
-        await setDoc(ref, {status: "successfully created for existing user"});
-        ref = collection(db, "_private", uid, "tracking_budget-entities");
-        [ "Myself" ].forEach(async (name, i) => {
-            await setDoc(doc(ref, "entities" + i), {name, uniqueKey: "entities" + i});
-        });
-        ref = collection(db, "_private", uid, "tracking_budget-modesOfTransaction");
-        [ "Cash" ].forEach(async (name, i) => {
-            await setDoc(doc(ref, "modesOfTransaction" + i), 
-            {name, uniqueKey: "modesOfTransaction" + i});
-        });
-        ref = collection(db, "_private", uid, "tracking_budget-categories");
-        [
-            "Bills", "Dining", "Education", "EMI", "Fuel", "Gadgets", "Groceries",
-            "Grooming", "Health", "Household", "House Rent", "Investment", "Kids",
-            "Leisure", "Others", "Office", "Shopping", "Travel"
-        ].forEach(async (name, i) => {
-            await setDoc(doc(ref, "categories" + i), {name, uniqueKey: "categories" + i});
-        });
+        
     }
     return userCredentials;
 }
