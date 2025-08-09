@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import BusyIndicator from './component/BusyIndicator';
 import TypingBliss from './view/TypingBliss';
-import { logInWithToken } from './api/Firebase';
+import { logIn, logInWithToken } from './api/Firebase';
 import { checkIfLogin } from './api/TypingBliss';
 
 const App = () => {
@@ -31,7 +31,9 @@ const App = () => {
         localStorage.removeItem("TypingBliss-Login-Tries");
         setUserName(data.userName);
         if (code) window.location.href = process.env.REACT_APP_TYPING_BLISS_URL;
-        else logInWithToken(data.token).then(() => setLoggedIn(true));
+        else {
+            logInWithToken(data.token).then(() => setLoggedIn(true));
+        }
     }).catch((e) => {
         if (localStorage.getItem("TypingBliss-Login-Tries") === "fresh") {
             window.location.href = process.env.REACT_APP_ULTIMATE_UTILITY_URL + "?redirect=TYPING_BLISS";

@@ -582,7 +582,7 @@ const TypingBliss = ({showBusyIndicator}) => {
 
                 updateData({"typing_bliss.keys": keysAccuracy});
 
-                updateDashboardData("typing_bliss", "result", data);
+                // updateDashboardData("typing_bliss", "result", data);
             }
             setActivityTime(0);
             setActivityStarted(3);

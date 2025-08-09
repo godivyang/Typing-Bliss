@@ -21,5 +21,8 @@ export default defineConfig({
   plugins: [pluginReact()],
   server: {
     port: 3003,
+  },
+  html: {
+    title: "Typing Bliss"
   }
 });
