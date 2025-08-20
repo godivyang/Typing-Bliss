@@ -62,7 +62,7 @@ const App = () => {
     </div>
     :
     <div style={{margin: "2rem", background: "black", fontSize: "2rem", fontWeight: "700", borderRadius: "10px", padding: "2rem"}}>
-      Please wait, we are working on autorizing you.
+      Please wait, we are working on authorizing you.
     </div>
 };
 
