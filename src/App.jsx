@@ -20,7 +20,7 @@ const App = () => {
     } else if (loginTriesFlag === "tried") {
         localStorage.setItem("TypingBliss-Login-Tries", "final");
     } else if (loginTriesFlag === "fresh") {
-return;
+
     } else {
         localStorage.removeItem("TypingBliss-Login-Tries");
         alert("SSO LOGIN FAILED!");
